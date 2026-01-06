@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ganhe Seguidores no Instagram e Facebook - Download Grátis</title>
+  <title>Ganhe Seguidores - Download Grátis</title>
   <style>
     body {
       margin: 0;
@@ -54,19 +54,11 @@
       font-weight: bold;
       box-shadow: 0 4px 14px rgba(0,0,0,0.2);
       transition: transform 0.3s, background-color 0.3s;
+      cursor: pointer;
     }
 
     .download-btn:hover {
       transform: scale(1.05);
-      background-color: #4caf50;
-    }
-
-    .benefits, .how-to, .comments {
-      margin-top: 40px;
-    }
-
-    .benefits ul, .how-to ol {
-      margin-left: 20px;
     }
 
     .highlight {
@@ -75,6 +67,18 @@
       border-left: 4px solid #ffc107;
       margin-top: 20px;
       font-weight: bold;
+    }
+
+    .password-warning {
+      background-color: #fff3cd;
+      border: 2px solid #ffca2c;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 1.5em;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 10px;
+      color: #856404;
     }
 
     .comment-box {
@@ -98,6 +102,58 @@
       background-color: #eee;
       font-size: 0.9em;
     }
+
+    /* MODAL STYLES */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+    }
+
+    .modal p {
+      font-size: 1.2em;
+    }
+
+    .modal strong {
+      color: #d32f2f;
+      font-size: 1.4em;
+    }
+
+    .modal button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .modal button:hover {
+      background-color: #388e3c;
+    }
   </style>
 </head>
 <body>
@@ -114,7 +170,7 @@
       <div class="highlight">
         ⚠️ Não é necessário informar senha, e-mail ou usuário. Basta o @ da sua conta!
       </div>
-      <a class="download-btn" href="/INSTA-MAXBR.zip">📥 BAIXAR GRÁTIS AGORA</a>
+      <div class="download-btn" onclick="abrirModal()">📥 BAIXAR GRÁTIS AGORA</div>
     </section>
 
     <section class="benefits">
@@ -161,17 +217,40 @@
         Testei com meu perfil de loja e ajudou muito a trazer novos clientes. Recomendo!
       </div>
     </section>
-
-    <section class="hero" id="download">
-      <h2>🔽 Baixe Gratuitamente Agora</h2>
-      <a class="download-btn" href="/INSTA-MAXBR.zip">📥 BAIXAR GRÁTIS AGORA</a>
-    </section>
-
   </div>
 
   <footer>
     © 2026 - Todos os direitos reservados | <a href="#">Termos de uso</a> | <a href="#">Contato</a>
   </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2>🔐 Senha do Software</h2>
+      <p>Para abrir o software após o download, use a seguinte senha:</p>
+      <strong>123</strong>
+      <br>
+      <button onclick="continuarParaDownload()">Continuar para o Download</button>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal() {
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function continuarParaDownload() {
+      window.location.href = "INSTAMAX.zip";
+    }
+
+    // Fecha o modal ao clicar fora
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 
 </body>
 </html>
